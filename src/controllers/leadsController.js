@@ -107,7 +107,7 @@ const getLeadsByEmployeeId = async (req, res) => {
 const updateStatus = async (req, res) => {
     const employeeId = req.body.id
     const leadEmail = req.body.email
-    const updatedStatus = await Leads.findOneAndUpdate({ "employeeId": employeeId, "tasks.email": leadEmail }, { status: req.body.status }, { new: true })
+ await Leads.findOneAndUpdate({ "employeeId": employeeId, "tasks.email": leadEmail }, { status: req.body.status }, { new: true })
     res.status(200).send({ status: true, message: "Status updated successfully" });
 }
 
